@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface BookmakersBar {
++getNameFolder() : String
++getLink() : String
+}
+class FolderEducation {
+
+}
+class FolderSearcher{
+
+}
+class FolderSocialNetwork {
+
+}
+
+class Folders {
+
+-nameOfFolders : String
+-nameOfSites : String
+-nameOfLinks : String
++addNewEntity(entity : FolderEntity) : boolean
++deleteEntity(NameFolder: string) : boolean
++openInNewTab(entity : FolderEntity) : boolean
++openInNewBlank(entity : FolderEntity) : boolean
++openInIncognitoMode(entity : FolderEntity) : boolean
+}
+
+BookmakersBar"1..*"  <--> "1" Folders
+Folders <|-- FolderSearcher
+Folders <|-- FolderSocialNetwork
+Folders <|-- FolderEducation
+BookmakersBar <|.. FolderSearcher
+BookmakersBar <|.. FolderSocialNetwork
+BookmakersBar <|.. FolderEducation
+
+@enduml

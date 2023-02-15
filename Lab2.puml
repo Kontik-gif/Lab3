@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/class-diagram
+'https://www.techcrashcourse.com/2015/10/adapter-design-pattern.html
+
+class  AdapterWatch {
+ + main(String[]): void
+}
+
+interface Watch {
+  + + setHands(int): void
+  + + printMethodOfGettingCharge(): void
+}
+
+abstract class DigitalWatchAdapter {
+  + + setHands(int): void
+  + + printMethodOfGettingCharge(): void
+}
+
+interface DigitalWatch{
+  + + set(int): void
+  + + printMethodOfGettingCharge(): void
+  + + printFunctions(): void
+}
+
+ class HandWatch {
+  + + setHands(int): void
+  + + printMethodOfGettingCharge(): void
+}
+
+class AppleWatch {
+  + + setHands(int): void
+  + + printMethodOfGettingCharge(): void
+  + + printFunctions(): void
+}
+
+AdapterWatch -->  DigitalWatchAdapter
+Watch <|.. DigitalWatchAdapter
+DigitalWatch <-- DigitalWatchAdapter
+Watch <|.. HandWatch
+DigitalWatch <|.. AppleWatch
+
+@enduml
